@@ -170,35 +170,7 @@ HeartMuLaでは各カテゴリーに選択確率が設定されており、影�
 - **[Bridge]** - ブリッジ（曲の転換部分）
 - **[Outro]** - アウトロ/終奏
 
-### 3. 細粒度スタイルタグ（構造タグの後に追加）
-
-各セクションの詳細な表現を3つの次元で制御できます:
-
-**A. ダイナミクス・エネルギー（Dynamics & Energy）**
-- Moderate intensity（中程度の強度）
-- High energy sustain（高エネルギー持続）
-- Explosive（爆発的）
-- Understated energy（控えめなエネルギー）
-- Subtle electronic pulse（微妙な電子パルス）
-- Gradual crescendo（徐々に強く）
-
-**B. ボーカル・技巧（Vocal & Technique）**
-- Introspective vocal delivery（内省的な歌唱）
-- Triumphant vocal expression（勝利的な表現）
-- Reflective vocal tone（反省的なトーン）
-- Gentle whisper（優しいささやき）
-- Powerful belting（力強い歌唱）
-- Soaring high notes（高音が響く）
-
-**C. スタイル・雰囲気（Style & Vibe）**
-- Atmospheric build（雰囲気の構築）
-- Narrative progression（物語の進行）
-- Anticipatory mood（期待の雰囲気）
-- Gradual fade（徐々にフェード）
-- Warm embrace（温かい包容）
-- Rhythmic groove（リズミカルなグルーヴ）
-
-使用例: `[Chorus] [Explosive melodic hook, high energy sustain, triumphant vocal expression]`
+使用例: `[Chorus]` の後に歌詞を記述
 
 ## 出力フォーマット
 
@@ -208,13 +180,13 @@ STYLE_TAGS:
 [カンマ区切り、スペースなしのグローバルスタイルタグリスト]
 
 LYRICS:
-[構造タグと細粒度タグを含む完全な歌詞]
+[構造タグを含む完全な歌詞]
 
 ## 要件
 1. STYLE_TAGSは必ず英語で、カンマ区切り、**スペースなし**で出力
 2. 歌詞は{language}で出力
 3. 楽曲構成：{structure_guide[structure]}
-4. 各構造タグには適切な細粒度タグを付加
+4. 構造タグ（[Intro], [Verse]等）のみ使用し、細粒度タグは付加しない
 5. 歌詞は自然で音楽的な流れを重視
 6. キーワードのテーマを歌詞に自然に組み込む
 7. 選択確率の高いカテゴリー（Genre 0.95, Timbre 0.5）を優先的に含める
@@ -260,7 +232,10 @@ LYRICS:
         
         # 余計な空行を整理
         lyrics = re.sub(r'\n{3,}', '\n\n', lyrics)
-        
+
+        # 細粒度スタイルタグを除去（構造タグの後の [xxx, yyy, zzz] 形式）
+        lyrics = re.sub(r'(\[(?:Intro|Verse|Prechorus|Chorus|Bridge|Outro)\])\s*\[[^\]]+\]', r'\1', lyrics, flags=re.IGNORECASE)
+
         return style_tags, lyrics
 
 

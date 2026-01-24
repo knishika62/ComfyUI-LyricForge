@@ -10,4 +10,4 @@ from .nodes import NODE_CLASS_MAPPINGS, NODE_DISPLAY_NAME_MAPPINGS
 __all__ = ['NODE_CLASS_MAPPINGS', 'NODE_DISPLAY_NAME_MAPPINGS']
 
 # Version info
-__version__ = "2.0.0"
+__version__ = "2.1.0"
