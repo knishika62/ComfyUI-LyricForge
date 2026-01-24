@@ -2,6 +2,8 @@
 
 AI音楽生成モデル（HeartMuLa等）用のスタイルタグと歌詞を、キーワードから自動生成するComfyUI Custom Nodeです。
 
+**[HeartMuLa_ComfyUI](https://github.com/benjiyaya/HeartMuLa_ComfyUI)** と組み合わせて使用することを前提としています。
+
 **v2.1.0**: 歌詞出力を簡略化し、構造タグ（`[Chorus]`等）のみを出力するように変更しました。
 
 ## 機能
@@ -227,6 +229,7 @@ MIT License
 
 ## 関連リンク
 
+- [HeartMuLa_ComfyUI](https://github.com/benjiyaya/HeartMuLa_ComfyUI) - 連携先カスタムノード（必須）
 - [HeartMuLa GitHub](https://github.com/HeartMuLa/heartlib) - 対応音楽生成モデル
 - [ComfyUI](https://github.com/comfyanonymous/ComfyUI)
 
