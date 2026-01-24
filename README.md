@@ -14,14 +14,6 @@ AI音楽生成モデル（HeartMuLa等）用のスタイルタグと歌詞を、
 
 ## インストール
 
-### 方法1: ComfyUI Manager経由（推奨）
-
-1. ComfyUI Managerを開く
-2. "Install Custom Nodes"を選択
-3. "ComfyUI-LyricForge"を検索してインストール
-
-### 方法2: 手動インストール
-
 ```bash
 cd ComfyUI/custom_nodes/
 git clone https://github.com/yourusername/ComfyUI-LyricForge.git
@@ -235,7 +227,7 @@ MIT License
 
 ## 関連リンク
 
-- [HeartMuLa GitHub](https://github.com/bytedance/HeartMuLa) - 対応音楽生成モデル
+- [HeartMuLa GitHub](https://github.com/HeartMuLa/heartlib) - 対応音楽生成モデル
 - [ComfyUI](https://github.com/comfyanonymous/ComfyUI)
 
 ## 更新履歴
